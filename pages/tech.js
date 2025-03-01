@@ -58,8 +58,9 @@ const Mobile = ({ posts, authorName }) => {
 
 export default Mobile
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps({ res }) {
   try {
+    res.setHeader("Cache-Control", "no-store, must-revalidate"); 
     const client = createClient({
       projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
       dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,

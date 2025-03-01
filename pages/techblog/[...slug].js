@@ -77,6 +77,7 @@ export const getServerSideProps = async (context) => {
   const post = await client.fetch(query);
   const authorquery = `*[_type == "author"]{name}[0]`;
   const author = await client.fetch(authorquery);
+  context.res.setHeader("Cache-Control", "no-store, must-revalidate");
 
   return {
     props: {
