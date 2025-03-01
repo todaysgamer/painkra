@@ -1,0 +1,62 @@
+.contactContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 0;
+  }
+  
+  .contactForm {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  .contactFormTitle {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .contactFormField {
+    margin-bottom: 20px;
+  }
+  
+  .contactFormLabel {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  .contactFormInput {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  .contactFormTextarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  .contactFormButton {
+    display: inline-block;
+    background-color: #000;
+    color: #fff;
+    font-size: 14px;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  .contactFormButton:hover {
+    background-color: #666;
+  }
+  
+  .success_msg{
+    color: #a8e48a;
+}
+
+.error_msg{
+    color: red;
+}

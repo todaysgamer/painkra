@@ -1,0 +1,46 @@
+.container {
+    max-width: 800px;
+    margin:  4rem auto;
+    padding: 20px;
+  }
+  
+  .post {
+    margin-top: 20px;
+  }
+  
+  .title {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+  
+  .meta {
+    color: #888;
+    margin-bottom: 15px;
+  }
+  
+  .content {
+    line-height: 1.6;
+  }
+  
+
+  @media screen and (max-width: 767px) {
+   
+    .container {
+      padding: 10px;
+    }
+    .title {
+      font-size: 30px;
+    }
+  }
+  
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+
+    .container {
+      max-width: 600px;
+      padding: 15px;
+    }
+    .title {
+      font-size: 22px;
+    }
+  }
+  
