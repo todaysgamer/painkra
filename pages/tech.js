@@ -5,22 +5,16 @@ import { createClient } from 'next-sanity'
 import Link from 'next/link'
 import imageUrlBuilder from '@sanity/image-url'
 
-
-const Mobile = ({ posts, authorName }) => {
-
-  const client = createClient({
+const getSanityClient = () => {
+  return createClient({
     projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
     dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
-    apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION,
-    useCdn: false
+    apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION || "2023-05-03",
+    useCdn: false,
+  })
+}
 
-  });
-
-  const builder = imageUrlBuilder(client)
-
-  function urlFor(source) {
-    return builder.image(source)
-  }
+const Mobile = ({ posts, authorName }) => {
   return (
 
     <div className={styles.blogContainer}>
@@ -36,7 +30,7 @@ const Mobile = ({ posts, authorName }) => {
       {posts.map((post) => (<>
         <div className={styles.blogPost}>
 
-          <Link key={post.slug.current} href={"/techblog/" + post.slug.current}>
+          <Link key={post.slug.current}  href={`/techblog/${encodeURIComponent(post.slug)}`}>
             <h2 className={styles.blogPostTitle}>{post.title}</h2>
             <p className={styles.blogPostText}>
               {post.metadesc}
@@ -60,31 +54,39 @@ export default Mobile
 
 export async function getServerSideProps(context) {
   try {
-    const client = createClient({
-      projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
-      dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
-      apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION,
-      useCdn: false
-    });
+    const client = getSanityClient()
 
-    const query = `*[_type == "techblog" &&  "Tech" in categories[]->title]{slug, metadesc, title, publishedAt, mainImage} `;
-    const posts = await client.fetch(query);
+    const query = `*[_type == "techblog" &&  "Tech" in categories[]->title]{
+      slug, 
+      "slug": slug.current,
+      metadesc, 
+      title, 
+      publishedAt, 
+      mainImage
+    }`
 
-    const authorquery = `*[_type == "author"]{name}[0]`;
-    const author = await client.fetch(authorquery);
+    const posts = await client.fetch(query)
+   
+
+    const authorquery = `*[_type == "author"]{name}[0]`
+    const author = await client.fetch(authorquery)
+
 
     return {
       props: {
-        posts, authorName: author.name,
-      }
+        posts,
+        authorName: author?.name || "Unknown Author",
+      },
     }
   } catch (error) {
-    console.error("Error fetching data:", error);
+    console.error("Error fetching data:", error)
+    // Return more detailed error information in development
     return {
       props: {
         posts: [],
         authorName: "",
+        error: process.env.NODE_ENV === "development" ? error.message : "An error occurred",
       },
-    };
+    }
   }
 }
