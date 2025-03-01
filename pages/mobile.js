@@ -32,23 +32,24 @@ const Mobile = ({ posts, authorName }) => {
         <meta name="robots" content="index, follow" />
         <link rel="icon" href="/painkra.svg" />
       </Head>
-      {posts.map((post) => (<>
-        <div className={styles.blogPost}>
+      {posts?.length > 0 ? (
+        posts.map((post) => (
+          <div className={styles.blogPost} key={post.slug.current}>
+            <Link href={"/techblog/" + post.slug.current}>
+              <h2 className={styles.blogPostTitle}>{post.title}</h2>
+              <p className={styles.blogPostText}>{post.metadesc}</p>
+              <div className={styles.blogPostMeta}>
+                <small>Published on: {post.publishedAt}</small>
+                <p>Author: {authorName}</p>
+              </div>
+              <button className={styles.blogPostButton}>Read More</button>
+            </Link>
+          </div>
+        ))
+      ) : (
+        <p>Loading posts...</p>
+      )}
 
-          <Link key={post.slug.current} href={"/techblog/" + post.slug.current}>
-            <h2 className={styles.blogPostTitle}>{post.title}</h2>
-            <p className={styles.blogPostText}>
-              {post.metadesc}
-            </p>
-            <div className={styles.blogPostMeta}>
-              <small>Published on: {post.publishedAt}</small>
-              <p>Author: {authorName}</p>
-            </div>
-            <button className={styles.blogPostButton}>Read More</button>
-          </Link>
-        </div>
-      </>
-      ))}
     </div>
 
   )
@@ -64,13 +65,13 @@ export async function getServerSideProps(context) {
       apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION,
       useCdn: false
     });
-    
+
     const query = `*[_type == "techblog" &&  "Smartphone" in categories[]->title]{slug, metadesc, title, publishedAt, mainImage} `;
     const posts = await client.fetch(query);
-    
+
     const authorquery = `*[_type == "author"]{name}[0]`;
     const author = await client.fetch(authorquery);
-    
+
     return {
       props: {
         posts, authorName: author.name,
