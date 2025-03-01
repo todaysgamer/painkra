@@ -32,24 +32,25 @@ const Mobile = ({ posts, authorName }) => {
         <meta name="robots" content="index, follow" />
         <link rel="icon" href="/painkra.svg" />
       </Head>
-      {posts?.length > 0 ? (
-        posts.map((post) => (
-          <div className={styles.blogPost} key={post.slug.current}>
-            <Link href={"/techblog/" + post.slug.current}>
-              <h2 className={styles.blogPostTitle}>{post.title}</h2>
-              <p className={styles.blogPostText}>{post.metadesc}</p>
-              <div className={styles.blogPostMeta}>
-                <small>Published on: {post.publishedAt}</small>
-                <p>Author: {authorName}</p>
-              </div>
-              <button className={styles.blogPostButton}>Read More</button>
-            </Link>
-          </div>
-        ))
-      ) : (
-        <p>Loading posts...</p>
-      )}
+      <>
+      {posts.map((post) => (<>
+        <div className={styles.blogPost}>
 
+          <Link key={post.slug.current} href={"/techblog/" + post.slug.current}>
+            <h2 className={styles.blogPostTitle}>{post.title}</h2>
+            <p className={styles.blogPostText}>
+              {post.metadesc}
+            </p>
+            <div className={styles.blogPostMeta}>
+              <small>Published on: {post.publishedAt}</small>
+              <p>Author: {authorName}</p>
+            </div>
+            <button className={styles.blogPostButton}>Read More</button>
+          </Link>
+        </div>
+      </>
+      ))}
+      </>
     </div>
 
   )
