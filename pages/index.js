@@ -11,7 +11,7 @@ export default function Home() {
       <Head>
         <title>Painkra</title>
         <meta name="description" content="This website is for people who are wanted to explore more about the tech world, such as mobile, tab, laptop, gaming, AI and social media platforms" />
-        <meta name="keywords" content="Painkra, Android Device, tab, Ipad, iphone, social media, AI, gaming leptop, pc" />
+        <meta name="keywords" content="Painkra, Android Device, tab, Ipad, iphone, social media, AI, gaming leptop, pc, tech" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="robots" content="index, follow" />
         <link rel="icon" href="/painkra.svg" />
