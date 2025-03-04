@@ -55,6 +55,7 @@ const Contact = () => {
         <link rel="icon" href="/painkra.svg" />
       </Head>
       <div className={styles.contactForm}>
+      <h1>Not Servicible</h1>
         <h2 className={styles.contactFormTitle}>Contact Us</h2>
         <form onSubmit={handleSubmit}>
           <div className={styles.contactFormField}>
