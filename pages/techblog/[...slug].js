@@ -6,6 +6,8 @@ import { createClient } from "next-sanity";
 import React from 'react'
 const BlockContent = require('@sanity/block-content-to-react')
 
+export const runtime = 'experimental-edge';
+
 const Post = ({ post, authorName }) => {
 
 
@@ -65,7 +67,6 @@ const Post = ({ post, authorName }) => {
 
 export default Post
 
-export const runttime = 'edge';
 export const getServerSideProps = async (context) => {
   const { slug } = context.query
   const client = createClient({

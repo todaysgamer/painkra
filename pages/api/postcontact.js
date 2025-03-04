@@ -1,8 +1,6 @@
 import Contact from "../../models/Contact";
 import connectDb from "../../middleware/mongoose";
 
-export const runttime = 'edge';
-
 const handler = async (req, res) =>{
     if (req.method == 'POST'){
        
