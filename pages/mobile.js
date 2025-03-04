@@ -5,7 +5,7 @@ import { createClient } from 'next-sanity'
 import Link from 'next/link'
 import imageUrlBuilder from '@sanity/image-url'
 
-export const runttime = 'experimemtal-edge';
+
 
 const Mobile = ({ posts, authorName }) => {
 
@@ -58,6 +58,8 @@ const Mobile = ({ posts, authorName }) => {
 }
 
 export default Mobile
+
+export const runttime = 'edge';
 
 export async function getServerSideProps(context) {
   try {

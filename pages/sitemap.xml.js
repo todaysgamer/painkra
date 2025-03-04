@@ -28,7 +28,7 @@ const generateSitemapXml = (staticData, dynamicData) => {
 
 const Sitemap = () => {};
 
-export const runttime = 'experimemtal-edge';
+export const runttime = 'edge';
 
 export async function getServerSideProps({ res }) {
   const staticPages = [

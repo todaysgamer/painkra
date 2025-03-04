@@ -65,7 +65,7 @@ const Post = ({ post, authorName }) => {
 
 export default Post
 
-export const runttime = 'experimemtal-edge';
+export const runttime = 'edge';
 export const getServerSideProps = async (context) => {
   const { slug } = context.query
   const client = createClient({
