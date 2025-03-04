@@ -28,6 +28,8 @@ const generateSitemapXml = (staticData, dynamicData) => {
 
 const Sitemap = () => {};
 
+export const runttime = 'experimemtal-edge';
+
 export async function getServerSideProps({ res }) {
   const staticPages = [
     { url: '/', lastModified: '2024-03-26' },
