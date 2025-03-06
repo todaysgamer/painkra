@@ -6,7 +6,7 @@ import { createClient } from "next-sanity";
 import React from 'react'
 const BlockContent = require('@sanity/block-content-to-react')
 
-export const runtime = 'experimental-edge';
+
 
 const Post = ({ post, authorName }) => {
 

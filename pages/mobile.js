@@ -5,7 +5,7 @@ import { createClient } from 'next-sanity'
 import Link from 'next/link'
 import imageUrlBuilder from '@sanity/image-url'
 
-export const runtime = 'experimental-edge';
+
 
 const Mobile = ({ posts, authorName }) => {
 

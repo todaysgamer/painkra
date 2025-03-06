@@ -6,7 +6,7 @@ import Link from 'next/link'
 import imageUrlBuilder from '@sanity/image-url'
 
 
-export const runtime = 'experimental-edge';
+
 const Mobile = ({ posts, authorName }) => {
 
   const client = createClient({
