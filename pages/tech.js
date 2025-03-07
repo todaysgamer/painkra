@@ -35,7 +35,7 @@ const Mobile = ({ posts, authorName }) => {
       {posts?.map((post) => (<>
         <div className={styles.blogPost}>
 
-          <Link key={post.slug.current} href={"/techblog/" + post.slug.current}>
+          <Link key={post?.slug.current} href={"/techblog/" + post.slug.current}>
             <h2 className={styles.blogPostTitle}>{post.title}</h2>
             <p className={styles.blogPostText}>
               {post.metadesc}
