@@ -22,7 +22,7 @@ export default function Layout({ children }) {
 
                     </li>
                     <li className={styles.navitem}>
-                        <Link href='/ball'>
+                        <Link href='/tech'>
                             <p className={isOpen === false ?
                                 styles.navlink : styles.navlink + ' ' + styles.active}
                                 onClick={openMenu}>Tech</p>

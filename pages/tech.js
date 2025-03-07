@@ -37,7 +37,7 @@ const Mobile = ({ posts, authorName }) => {
       {posts.map((post) => (<>
         <div className={styles.blogPost}>
 
-          <Link key={post.slug.current} href={"/ball/" + post.slug.current}>
+          <Link key={post?.slug.current} href={"/techblog/" + post.slug.current}>
             <h2 className={styles.blogPostTitle}>{post.title}</h2>
             <p className={styles.blogPostText}>
               {post.metadesc}
@@ -61,9 +61,9 @@ export default Mobile
 
 
 
-export async function getServerSideProps({ res }) {
+export async function getServerSideProps(console) {
   try {
-    res.setHeader("Cache-Control", "no-store, must-revalidate"); 
+    
     const client = createClient({
       projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
       dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
