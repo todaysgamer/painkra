@@ -5,8 +5,6 @@ import { createClient } from 'next-sanity'
 import Link from 'next/link'
 import imageUrlBuilder from '@sanity/image-url'
 
-
-
 const Mobile = ({ posts, authorName }) => {
 
   const client = createClient({
