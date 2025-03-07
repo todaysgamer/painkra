@@ -22,9 +22,6 @@ const Mobile = ({ posts, authorName }) => {
   function urlFor(source) {
     return builder.image(source)
   }
-
-  if (!posts || posts.length === 0) return <p>Loading...</p>;
-
   return (
 
     <div className={styles.blogContainer}>
@@ -40,7 +37,7 @@ const Mobile = ({ posts, authorName }) => {
       {posts.map((post) => (<>
         <div className={styles.blogPost}>
 
-          <Link key={post?.slug.current} href={"/techblog/" + post.slug.current}>
+          <Link key={post.slug.current} href={"/ball/" + post.slug.current}>
             <h2 className={styles.blogPostTitle}>{post.title}</h2>
             <p className={styles.blogPostText}>
               {post.metadesc}
