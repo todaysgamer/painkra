@@ -5,6 +5,8 @@ import { createClient } from 'next-sanity'
 import Link from 'next/link'
 import imageUrlBuilder from '@sanity/image-url'
 
+
+
 const Mobile = ({ posts, authorName }) => {
 
   const client = createClient({
@@ -20,6 +22,9 @@ const Mobile = ({ posts, authorName }) => {
   function urlFor(source) {
     return builder.image(source)
   }
+
+  if (!posts || posts.length === 0) return <p>Loading...</p>;
+
   return (
 
     <div className={styles.blogContainer}>
@@ -31,24 +36,25 @@ const Mobile = ({ posts, authorName }) => {
         <meta name="robots" content="index, follow" />
         <link rel="icon" href="/painkra.svg" />
       </Head>
-      <div>
-      {posts?.map((post, index) => (
-  <div key={post?.slug?.current || index} className={styles.blogPost}>
-    <Link href={post?.slug?.current ? `/techblog/${post.slug.current}` : "#"} legacyBehavior>
-      <a>
-        <h2 className={styles.blogPostTitle}>{post?.title || "Untitled Post"}</h2>
-        <p className={styles.blogPostText}>{post?.metadesc || "No description available."}</p>
-        <div className={styles.blogPostMeta}>
-          <small>Published on: {post?.publishedAt || "Unknown Date"}</small>
-          <p>Author: {authorName || "Unknown Author"}</p>
-        </div>
-        <button className={styles.blogPostButton}>Read More</button>
-      </a>
-    </Link>
-  </div>
-))}
+      <>
+      {posts.map((post) => (<>
+        <div className={styles.blogPost}>
 
-      </div>
+          <Link key={post?.slug.current} href={"/techblog/" + post.slug.current}>
+            <h2 className={styles.blogPostTitle}>{post.title}</h2>
+            <p className={styles.blogPostText}>
+              {post.metadesc}
+            </p>
+            <div className={styles.blogPostMeta}>
+              <small>Published on: {post.publishedAt}</small>
+              <p>Author: {authorName}</p>
+            </div>
+            <button className={styles.blogPostButton}>Read More</button>
+          </Link>
+        </div>
+      </>
+      ))}
+      </>
     </div>
 
   )
