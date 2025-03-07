@@ -16,7 +16,7 @@ const Post = ({ post, authorName }) => {
     <div>
 
       <Head>
-        <title>{`${post?.title} - Painkra`}</title>
+        <title>{`${post.title} - Painkra`}</title>
         <meta name="description" content={post?.metadesc} />
         <meta name="keywords" content="Painkra, Android Device, tab, Ipad, iphone, social media, AI, gaming leptop, pc" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -34,7 +34,7 @@ const Post = ({ post, authorName }) => {
       <div className={styles.container}>
 
         <article className={styles.post}>
-          <h1 className={styles.title}>{post?.title}</h1>
+          <h1 className={styles.title}>{post.title}</h1>
           <p className={styles.meta}>
             {post?.lastModified} - By {authorName}
           </p>
