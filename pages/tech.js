@@ -32,23 +32,22 @@ const Mobile = ({ posts, authorName }) => {
         <link rel="icon" href="/painkra.svg" />
       </Head>
       <div>
-      {posts?.map((post) => (<>
-        <div key={post?.slug?.current} className={styles.blogPost}>
-
-          <Link  href={"/techblog/" + post.slug.current}>
-            <h2 className={styles.blogPostTitle}>{post.title}</h2>
-            <p className={styles.blogPostText}>
-              {post.metadesc}
-            </p>
-            <div className={styles.blogPostMeta}>
-              <small>Published on: {post.publishedAt}</small>
-              <p>Author: {authorName}</p>
-            </div>
-            <button className={styles.blogPostButton}>Read More</button>
-          </Link>
+      {posts?.map((post, index) => (
+  <div key={post?.slug?.current || index} className={styles.blogPost}>
+    <Link href={post?.slug?.current ? `/techblog/${post.slug.current}` : "#"} legacyBehavior>
+      <a>
+        <h2 className={styles.blogPostTitle}>{post?.title || "Untitled Post"}</h2>
+        <p className={styles.blogPostText}>{post?.metadesc || "No description available."}</p>
+        <div className={styles.blogPostMeta}>
+          <small>Published on: {post?.publishedAt || "Unknown Date"}</small>
+          <p>Author: {authorName || "Unknown Author"}</p>
         </div>
-      </>
-      ))}
+        <button className={styles.blogPostButton}>Read More</button>
+      </a>
+    </Link>
+  </div>
+))}
+
       </div>
     </div>
 
