@@ -11,18 +11,6 @@ const BlockContent = require('@sanity/block-content-to-react')
 const Post = ({ post, authorName }) => {
 
 
-  const client = createClient({
-    projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
-    dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
-    apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION,
-    useCdn: false
-  });
-  const builder = imageUrlBuilder(client)
-
-  function urlFor(source) {
-    return builder.image(source)
-  }
-
   return (
 
     <div>
@@ -51,7 +39,7 @@ const Post = ({ post, authorName }) => {
             {post?.lastModified} - By {authorName}
           </p>
           <div className={styles.content}>  <BlockContent
-            blocks={post.body}
+            blocks={post?.body}
             projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
             dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
           />

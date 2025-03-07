@@ -34,7 +34,7 @@ const Mobile = ({ posts, authorName }) => {
         <link rel="icon" href="/painkra.svg" />
       </Head>
       <>
-      {posts.map((post) => (<>
+      {posts?.map((post) => (<>
         <div className={styles.blogPost}>
 
           <Link key={post?.slug.current} href={"/techblog/" + post.slug.current}>
@@ -61,7 +61,7 @@ export default Mobile
 
 
 
-export async function getServerSideProps(console) {
+export async function getServerSideProps(context) {
   try {
     
     const client = createClient({
