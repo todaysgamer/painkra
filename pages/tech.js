@@ -32,7 +32,7 @@ const Mobile = ({ posts, authorName }) => {
         <link rel="icon" href="/painkra.svg" />
       </Head>
       <>
-      {posts.map((post) => (<>
+      {posts?.map((post) => (<>
         <div className={styles.blogPost}>
 
           <Link key={post.slug.current} href={"/techblog/" + post.slug.current}>
