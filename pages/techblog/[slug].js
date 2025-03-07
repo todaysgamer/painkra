@@ -34,7 +34,7 @@ const Post = ({ post, authorName }) => {
       <div className={styles.container}>
 
         <article className={styles.post}>
-          <h1 className={styles.title}>{post.title}</h1>
+          <h1 className={styles.title}>{post?.title}</h1>
           <p className={styles.meta}>
             {post?.lastModified} - By {authorName}
           </p>
