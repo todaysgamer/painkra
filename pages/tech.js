@@ -31,11 +31,11 @@ const Mobile = ({ posts, authorName }) => {
         <meta name="robots" content="index, follow" />
         <link rel="icon" href="/painkra.svg" />
       </Head>
-      <>
+      <div>
       {posts?.map((post) => (<>
-        <div className={styles.blogPost}>
+        <div key={post?.slug?.current} className={styles.blogPost}>
 
-          <Link key={post?.slug.current} href={"/techblog/" + post.slug.current}>
+          <Link  href={"/techblog/" + post.slug.current}>
             <h2 className={styles.blogPostTitle}>{post.title}</h2>
             <p className={styles.blogPostText}>
               {post.metadesc}
@@ -49,7 +49,7 @@ const Mobile = ({ posts, authorName }) => {
         </div>
       </>
       ))}
-      </>
+      </div>
     </div>
 
   )
