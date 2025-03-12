@@ -21,13 +21,13 @@ export default function Home() {
       <section className={styles.blog}>
         <div className={styles.blogContainer}>
           <div className={styles.blogPost}>
-          <img
+          <Image
               src="/mobile.jpg"
               width={500}
               height={500}
-              alt="Image of Mobile Category"
+              alt="Mobile Related Blog"
               className={styles.blogImage}
-              loading='lazy'
+             
             />
             <div className={styles.blogContent}>
               <h2 className={styles.blogTitle}>Mobile</h2>
@@ -36,13 +36,13 @@ export default function Home() {
             </div>
           </div>
           <div className={styles.blogPost}>
-            <img
+            <Image
               src="/computer.jpg"
               width={500}
               height={500}
-              alt="Image of Computer Category"
+              alt="Computer Related Blog"
               className={styles.blogImage}
-              loading='lazy'
+             
             />
             
             <div className={styles.blogContent}>
@@ -52,13 +52,13 @@ export default function Home() {
             </div>
           </div>
           <div className={styles.blogPost}>
-          <img
+          <Image
               src="/tech.jpg"
               width={500}
               height={500}
-              alt="Image of Tech Category"
+              alt="Tech related blog"
               className={styles.blogImage}
-              loading='lazy'
+              
             />
             <div className={styles.blogContent}>
               <h2 className={styles.blogTitle}>Tech</h2>

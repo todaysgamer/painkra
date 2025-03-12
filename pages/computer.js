@@ -33,7 +33,7 @@ const Computer = ({ posts, authorName }) => {
         <meta name="robots" content="index, follow" />
         <link rel="icon" href="/painkra.svg" />
       </Head>
-      <div>
+      <>
       {posts?.map((post) => (<>
         <div className={styles.blogPost}>
 
@@ -51,7 +51,7 @@ const Computer = ({ posts, authorName }) => {
         </div>
       </>
       ))}
-      </div>
+      </>
     </div>
 
   )

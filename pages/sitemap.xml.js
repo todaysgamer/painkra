@@ -30,7 +30,7 @@ const Sitemap = () => {};
 
 export async function getServerSideProps({ res }) {
   const staticPages = [
-    { url: '/', lastModified: '2024-03-26' },
+    { url: '/', lastModified: '2025-03-12' },
     { url: '/mobile', lastModified: '2023-08-09' },
     { url: '/computer', lastModified: '2023-08-09' },
     { url: '/tech', lastModified: '2023-08-13' },
