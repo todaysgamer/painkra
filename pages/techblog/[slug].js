@@ -26,8 +26,8 @@ const Post = ({ post, authorName }) => {
 
       {post?.mainImage ? <Image
         src={builder.image(post.mainImage).width(300).height(300).url()}
-        width={600}
-        height={300}
+        width={850}
+        height={350}
         alt={post?.mainImage?.alt}
       /> : null}
 
